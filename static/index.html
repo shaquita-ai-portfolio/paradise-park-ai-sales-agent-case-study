@@ -1,0 +1,974 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+
+    <meta
+      name="description"
+      content="Plan a personalized Paradise Park Atlanta wellness experience."
+    />
+
+    <title>Paradise Park Experience Planner</title>
+
+    <link
+      rel="stylesheet"
+      href="/static/styles.css?version=12"
+    />
+  </head>
+
+  <body>
+    <a class="floating-concierge" href="#ai-concierge" aria-label="Open the AI concierge">
+      <span aria-hidden="true">✦</span>
+      <strong>AI Concierge</strong>
+    </a>
+    <main class="page-shell">
+      <header class="brand-header">
+        <p class="eyebrow gold-embossed">
+          Paradise Park Atlanta
+        </p>
+
+        <h1>
+          An invitation to pause,
+          reconnect and rejuvenate
+        </h1>
+
+        <p class="intro">
+          Answer a few thoughtful questions and
+          receive a suggested Paradise Park
+          experience with services selected around
+          the priorities you share.
+        </p>
+
+        <a
+          class="header-chat-link"
+          id="ambassador-chat-link"
+          href="https://paradiseislife.biz"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Questions? Chat with a Wellness Ambassador
+        </a>
+      </header>
+
+      <section
+        class="assessment-card"
+        id="assessment-card"
+      >
+        <div
+          class="progress-wrap"
+          aria-label="Assessment progress"
+        >
+          <div class="progress-copy">
+            <span id="step-label">
+              Step 1 of 4
+            </span>
+
+            <span id="progress-percent">
+              25%
+            </span>
+          </div>
+
+          <div class="progress-track">
+            <div
+              class="progress-bar"
+              id="progress-bar"
+            ></div>
+          </div>
+        </div>
+
+        <form
+          id="assessment-form"
+          novalidate
+        >
+          <section
+            class="form-step active"
+            data-step="1"
+          >
+            <p class="step-kicker">
+              Let’s begin
+            </p>
+
+            <h2>
+              Who are we planning for?
+            </h2>
+
+            <div class="field-grid">
+              <label class="field">
+                <span>Email address</span>
+                <input id="contact-email" name="contact_email" type="email" autocomplete="email" required />
+              </label>
+
+              <label class="field">
+                <span>Phone number</span>
+                <input id="contact-phone" name="contact_phone" type="tel" autocomplete="tel" required />
+              </label>
+
+              <label class="field">
+                <span>How did you hear about us?</span>
+                <select id="referral-source" name="referral_source" required>
+                  <option value="">Select one</option>
+                  <option>Instagram</option>
+                  <option>Facebook</option>
+                  <option>Google search</option>
+                  <option>Friend or colleague</option>
+                  <option>Previous Paradise Park guest</option>
+                  <option>Event or partnership</option>
+                  <option>Other</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>Instagram handle <small>(optional)</small></span>
+                <input id="instagram-handle" name="instagram_handle" autocomplete="off" placeholder="@yourhandle" />
+              </label>
+
+              <label class="field">
+                <span>Your name</span>
+
+                <input
+                  id="contact-name"
+                  name="contact_name"
+                  autocomplete="name"
+                  required
+                />
+              </label>
+
+              <label class="field">
+                <span>
+                  Organization
+                  <small>(optional)</small>
+                </span>
+
+                <input
+                  id="organization-name"
+                  name="organization_name"
+                  autocomplete="organization"
+                />
+              </label>
+
+              <label class="field">
+                <span>Number of guests</span>
+
+                <input
+                  id="group-size"
+                  name="group_size"
+                  type="number"
+                  min="1"
+                  max="500"
+                  value="1"
+                  required
+                />
+              </label>
+            </div>
+            <p class="privacy-note">We use this information to preserve your recommendation, identify your inquiry and follow up if the assessment is not completed.</p>
+          </section>
+
+          <section
+            class="form-step"
+            data-step="2"
+          >
+            <p class="step-kicker">
+              Shape the experience
+            </p>
+
+            <h2>
+              What kind of visit are you considering?
+            </h2>
+
+            <div class="availability-note">
+              <strong>
+                Paradise Park experience dates
+              </strong>
+
+              <span>
+                Experiences are available during the
+                second and fourth weeks of each month
+                on Tuesdays, Thursdays, Fridays,
+                Saturdays and Sundays. Every service
+                date in a multi-day retreat must meet
+                these availability requirements.
+              </span>
+            </div>
+
+            <div class="field-grid schedule-grid">
+              <label class="field">
+                <span>
+                  Requested start date
+                </span>
+
+                <input
+                  id="requested-start-date"
+                  name="requested_start_date"
+                  type="date"
+                  required
+                />
+              </label>
+
+              <label class="field">
+                <span>
+                  Number of retreat days
+                </span>
+
+                <select
+                  id="duration-days"
+                  name="duration_days"
+                  required
+                >
+                  <option value="1">
+                    1 service day
+                  </option>
+
+                  <option value="2">
+                    2 consecutive service days
+                  </option>
+
+                  <option value="3">
+                    3 consecutive service days
+                  </option>
+
+                  <option value="4">
+                    4 consecutive service days
+                  </option>
+                  <option value="5">5 consecutive service days</option>
+                  <option value="6">6 consecutive service days</option>
+                  <option value="7">7 consecutive service days</option>
+                </select>
+              </label>
+            </div>
+
+            <h3>
+              Select the experience you are
+              considering
+            </h3>
+
+            <div class="choice-grid two-column">
+              <label class="choice-card">
+                <input
+                  type="radio"
+                  name="experience"
+                  value="deep_rest"
+                  required
+                />
+
+                <span class="choice-title">
+                  Personal reset
+                </span>
+
+                <span>
+                  Time for rest, reflection and
+                  intentional care.
+                </span>
+              </label>
+
+              <label class="choice-card">
+                <input
+                  type="radio"
+                  name="experience"
+                  value="team_connection"
+                />
+
+                <span class="choice-title">
+                  Group or team retreat
+                </span>
+
+                <span>
+                  Connection, participation and shared restoration. Paradise
+                  Park group experiences begin with a minimum of 6 guests.
+                </span>
+              </label>
+
+            </div>
+
+            <div id="investment-section" class="investment-section">
+            <p class="step-kicker">Your level of support</p>
+            <h3>
+              What investment range feels
+              comfortable?
+            </h3>
+
+            <p class="helper value-framing-copy">
+              Consider the value of having dedicated time, personalized care
+              and a thoughtfully designed path toward the change you want.
+              Choose the level of support that feels aligned with the outcome
+              you would be excited to experience.
+            </p>
+
+            <p id="duration-investment-guidance" class="investment-guidance" hidden></p>
+
+            <div id="individual-budget-options" class="choice-grid budget-grid">
+              <label class="choice-card compact">
+                <input
+                  type="radio"
+                  name="budget"
+                  value="499"
+                  required
+                />
+
+                <span class="choice-title">
+                  Under $500
+                </span>
+
+                <span>
+                  A brief Express wellness experience:
+                  one nurturing featured activation
+                  designed to help you leave refreshed.
+                </span>
+              </label>
+
+              <label class="choice-card compact">
+                <input
+                  type="radio"
+                  name="budget"
+                  value="1800"
+                />
+
+                <span class="choice-title">
+                  $501–$1,800
+                </span>
+
+                <span>
+                  A personalized half-day unplug with
+                  four guided activations and optional
+                  private care.
+                </span>
+              </label>
+
+              <label class="choice-card compact">
+                <input
+                  type="radio"
+                  name="budget"
+                  value="4999"
+                />
+
+                <span class="choice-title">
+                  $1,801–$4,999
+                </span>
+
+                <span>
+                  A deeply personalized one-to-three-day
+                  reset with private care, culinary
+                  exploration and lodging.
+                </span>
+              </label>
+
+              <label class="choice-card compact">
+                <input
+                  type="radio"
+                  name="budget"
+                  value="9986"
+                />
+
+                <span class="choice-title">
+                  $5,000–$9,986
+                </span>
+
+                <span>
+                  A premium multi-day or group experience
+                  with greater depth, hospitality and
+                  guided support.
+                </span>
+              </label>
+
+              <label class="choice-card compact">
+                <input
+                  type="radio"
+                  name="budget"
+                  value="9987"
+                />
+
+                <span class="choice-title">
+                  $9,987 Peak Performance Pivot
+                </span>
+
+                <span>
+                  Three days, two nights, daily private
+                  care, a personalized Wellness Blueprint
+                  and 60 days of integration support.
+                </span>
+              </label>
+            </div>
+
+            <div id="group-budget-options" class="choice-grid budget-grid" hidden>
+              <label class="choice-card compact">
+                <input type="radio" name="budget" value="2200" disabled />
+                <span class="choice-title">$2,200–$4,999</span>
+                <span>A four-hour shared reset; final total depends on guest count and service days.</span>
+              </label>
+              <label class="choice-card compact">
+                <input type="radio" name="budget" value="5000" disabled />
+                <span class="choice-title">$5,000–$9,999</span>
+                <span>Supports a larger group reset or a multi-day base experience.</span>
+              </label>
+              <label class="choice-card compact">
+                <input type="radio" name="budget" value="10000" disabled />
+                <span class="choice-title">$10,000–$39,999</span>
+                <span>Opens full-day immersive options with culinary care and eligible lodging.</span>
+              </label>
+              <label class="choice-card compact">
+                <input type="radio" name="budget" value="40000" disabled />
+                <span class="choice-title">$40,000+</span>
+                <span>Premium multi-day transformation for larger teams and groups.</span>
+              </label>
+            </div>
+            </div>
+          </section>
+
+          <section
+            class="form-step"
+            data-step="3"
+          >
+            <p class="step-kicker">
+              Your priorities
+            </p>
+
+            <h2>
+              What would make this experience
+              meaningful?
+            </h2>
+
+            <p class="helper">
+              Choose everything that feels aligned.
+            </p>
+
+            <div
+              class="choice-grid two-column"
+              id="priority-options"
+            >
+              <label class="choice-card">
+                <input
+                  type="checkbox"
+                  name="priority"
+                  value="deep_rest"
+                  data-statement="I want unhurried rest and quiet restoration."
+                />
+
+                <span class="choice-title">
+                  Deep rest
+                </span>
+
+                <span>
+                  Quiet, sensory calm and space to
+                  slow down.
+                </span>
+              </label>
+
+              <label class="choice-card">
+                <input
+                  type="checkbox"
+                  name="priority"
+                  value="body_tension"
+                  data-statement="I often notice tension or limited ease in my body."
+                />
+
+                <span class="choice-title">
+                  Body ease
+                </span>
+
+                <span>
+                  Intentional movement, stretching
+                  and body awareness.
+                </span>
+              </label>
+
+              <label class="choice-card">
+                <input
+                  type="checkbox"
+                  name="priority"
+                  value="emotional_load"
+                  data-statement="I am moving through a demanding season and want reflective space."
+                />
+
+                <span class="choice-title">
+                  Emotional spaciousness
+                </span>
+
+                <span>
+                  A gentler pace with reflection
+                  and grounded support.
+                </span>
+              </label>
+
+              <label class="choice-card">
+                <input
+                  type="checkbox"
+                  name="priority"
+                  value="clarity_transition"
+                  data-statement="I am navigating change and want clarity about my next steps."
+                />
+
+                <span class="choice-title">
+                  Clarity and transition
+                </span>
+
+                <span>
+                  Reconnect with priorities, purpose
+                  and next intentions.
+                </span>
+              </label>
+
+              <label class="choice-card">
+                <input
+                  type="checkbox"
+                  name="priority"
+                  value="womb_centered"
+                  data-statement="I would like womb-centered wellbeing included in my options."
+                />
+
+                <span class="choice-title">
+                  Womb-centered wellbeing
+                </span>
+
+                <span>
+                  Private, carefully reviewed
+                  women’s wellness options.
+                </span>
+              </label>
+
+              <label class="choice-card">
+                <input
+                  type="checkbox"
+                  name="priority"
+                  value="skin_ritual"
+                  data-statement="Refreshing skincare and pampering would add value to my visit."
+                />
+
+                <span class="choice-title">
+                  Skincare and pampering
+                </span>
+
+                <span>
+                  A refreshing, appearance-focused
+                  care ritual.
+                </span>
+              </label>
+
+              <label class="choice-card">
+                <input
+                  type="checkbox"
+                  name="priority"
+                  value="nature_connection"
+                  data-statement="Nature and outdoor reflection would make my visit more meaningful."
+                />
+
+                <span class="choice-title">
+                  Nature connection
+                </span>
+
+                <span>
+                  River, garden and outdoor
+                  reflection experiences.
+                </span>
+              </label>
+
+              <label class="choice-card">
+                <input
+                  type="checkbox"
+                  name="priority"
+                  value="culinary_interest"
+                  data-statement="A culinary or herbal experience would add value to my visit."
+                />
+
+                <span class="choice-title">
+                  Intentional nourishment
+                </span>
+
+                <span>
+                  Culinary, herbal tea or
+                  garden-to-glass experiences.
+                </span>
+              </label>
+
+              <label class="choice-card">
+                <input
+                  type="checkbox"
+                  name="priority"
+                  value="joy_celebration"
+                  data-statement="Joy, celebration and a memorable moment are important to me."
+                />
+
+                <span class="choice-title">
+                  Joy and celebration
+                </span>
+
+                <span>
+                  Uplifting music, creativity or
+                  a memorable close.
+                </span>
+              </label>
+
+              <label class="choice-card">
+                <input
+                  type="checkbox"
+                  name="priority"
+                  value="faith_requested"
+                  data-statement="I would like Christian-centered reflection included."
+                />
+
+                <span class="choice-title">
+                  Faith-centered reflection
+                </span>
+
+                <span>
+                  Optional Christian reflection,
+                  purpose and journaling.
+                </span>
+              </label>
+            </div>
+
+            <div class="challenge-section" aria-labelledby="challenge-heading">
+              <p class="step-kicker">What you are ready to move through</p>
+              <h3 id="challenge-heading">Which wellness challenges or life seasons feel most present?</h3>
+              <p class="helper">
+                Choose the experiences that best describe what you want support
+                around. Your selections help us understand the depth, pace and
+                level of personalized care that may be most valuable.
+              </p>
+
+              <div class="choice-grid two-column" id="wellness-challenge-options">
+                <label class="choice-card"><input type="checkbox" name="priority" value="anxiety_support" data-statement="I am seeking a calmer rhythm during a season of anxiety or persistent worry." /><span class="choice-title">Anxiety and persistent worry</span><span>I want space to feel calmer, more grounded and less overwhelmed.</span></label>
+                <label class="choice-card"><input type="checkbox" name="priority" value="trauma_aware_support" data-statement="I want trauma-aware restorative support without being asked to relive difficult experiences." /><span class="choice-title">Trauma-aware restoration</span><span>I want gentle support, safety, reflection and reconnection.</span></label>
+                <label class="choice-card"><input type="checkbox" name="priority" value="relationship_renewal" data-statement="I want intentional space for relationship reflection, reconnection or renewal." /><span class="choice-title">Relationship renewal</span><span>I want to reconnect, communicate and create a healthier shared rhythm.</span></label>
+                <label class="choice-card"><input type="checkbox" name="priority" value="fear_confidence" data-statement="Fear or self-doubt has been limiting my next step and I want space to rebuild confidence." /><span class="choice-title">Fear and self-doubt</span><span>I am ready for greater courage, confidence and forward movement.</span></label>
+                <label class="choice-card"><input type="checkbox" name="priority" value="level_up" data-statement="I am ready to level up and want clarity, strategy and support for my next chapter." /><span class="choice-title">Level up in life</span><span>I want clarity and support for a meaningful personal or professional shift.</span></label>
+                <label class="choice-card"><input type="checkbox" name="priority" value="anti_aging" data-statement="I am interested in restorative longevity, vitality and natural anti-aging wellbeing practices." /><span class="choice-title">Anti-aging and vitality</span><span>I want to feel refreshed, vibrant and more intentional about longevity.</span></label>
+                <label class="choice-card"><input type="checkbox" name="priority" value="natural_fertility" data-statement="Natural fertility and preconception wellbeing are meaningful priorities for me." /><span class="choice-title">Natural fertility support</span><span>I want restorative preconception wellbeing and nurturing self-care.</span></label>
+                <label class="choice-card"><input type="checkbox" name="priority" value="postpartum_renewal" data-statement="I am in a postpartum season and want appropriate rest, replenishment and nurturing support." /><span class="choice-title">Postpartum renewal</span><span>I want to feel rested, cared for and supported during this life season.</span></label>
+                <label class="choice-card"><input type="checkbox" name="priority" value="grief_support" data-statement="I am carrying grief and want gentle space for rest, remembrance and reflection." /><span class="choice-title">Grief and life transition</span><span>I want quiet space to rest, remember and reconnect with myself.</span></label>
+                <label class="choice-card"><input type="checkbox" name="priority" value="high_stress" data-statement="I am experiencing sustained high stress and need meaningful space to slow down and reset." /><span class="choice-title">High stress</span><span>I have been carrying too much and need a deeper reset.</span></label>
+                <label class="choice-card"><input type="checkbox" name="priority" value="burnout_renewal" data-statement="I feel depleted by burnout and want a restorative path toward renewed energy and direction." /><span class="choice-title">Burnout renewal</span><span>I want to move from depletion toward renewed energy and direction.</span></label>
+                <label class="choice-card"><input type="checkbox" name="priority" value="high_demand_lifestyle" data-statement="My high-demand lifestyle leaves little room for rest and I want deeply personalized support." /><span class="choice-title">High-demand lifestyle</span><span>I need high-touch care designed around a demanding life and schedule.</span></label>
+              </div>
+            </div>
+          </section>
+
+          <section
+            class="form-step"
+            data-step="4"
+          >
+            <p class="step-kicker">
+              Final touches
+            </p>
+
+            <h2>
+              What else would you like us to
+              understand?
+            </h2>
+
+            <div id="enhancement-section" hidden>
+            <h3>
+              Would you like to explore an
+              enhancement?
+            </h3>
+
+            <p class="helper">
+              Enhancements are priced separately.
+              Enhancements are available only when Express Reset or Rapid Reset
+              is recommended. Select an option and then add it to your cart;
+              your revised total will be shown before checkout.
+            </p>
+
+            <div id="included-enhancement-notice" class="included-enhancement-notice" hidden>
+              <strong>Your immersive package already includes personalized care.</strong>
+              <span>Executive Reset and Peak Performance Pivot include two one-on-one services per day, Farm-to-Table dining and Paradise Park signature core experiences. We will select those services around the priorities you shared rather than charging for them again here.</span>
+            </div>
+
+            <div class="choice-grid two-column service-enhancements">
+              <label class="choice-card">
+                <input type="checkbox" name="service_addon" value="farm_to_table_individual" />
+                <span class="choice-title">Farm-to-Table Vegan Culinary Experience · $295</span>
+                <span>Available as a checkout enhancement for Express and Rapid Reset.</span>
+              </label>
+              <label class="choice-card">
+                <input type="checkbox" name="service_addon" value="assisted_stretch" />
+                <span class="choice-title">Assisted Deep Stretch · $175</span>
+                <span>Add focused, one-to-one mobility and body-awareness support.</span>
+              </label>
+              <label class="choice-card">
+                <input type="checkbox" name="service_addon" value="somatic_release" />
+                <span class="choice-title">Somatic Release · $275</span>
+                <span>Add a private, body-aware restorative experience.</span>
+              </label>
+              <label class="choice-card">
+                <input type="checkbox" name="service_addon" value="womb_wellness" />
+                <span class="choice-title">Womb Wellness · $225</span>
+                <span>Add private, nurturing women’s wellness and intentional self-care.</span>
+              </label>
+            </div>
+
+            <div class="choice-grid two-column product-enhancements">
+              <label class="choice-card">
+                <input
+                  type="checkbox"
+                  name="upgrade"
+                  value="pamper_collection"
+                />
+
+                <span class="choice-title">
+                  Pamper Collection
+                </span>
+
+                <span>
+                  Thoughtful comfort, beauty or
+                  relaxation additions selected to
+                  complement your retreat.
+                </span>
+              </label>
+
+              <label class="choice-card">
+                <input
+                  type="checkbox"
+                  name="upgrade"
+                  value="soil_to_soul_products"
+                />
+
+                <span class="choice-title">
+                  Soil to Soul products
+                </span>
+
+                <span>
+                  Paradise Park herbal, facial or
+                  lifestyle products selected around
+                  your stated interests.
+                </span>
+              </label>
+            </div>
+            <button class="button secondary add-enhancements-button" id="add-enhancements-button" type="button">
+              Add selected enhancements to cart
+            </button>
+            <p id="enhancement-cart-status" class="enhancement-cart-status" role="status"></p>
+            </div>
+
+            <label class="field">
+              <span>
+                Anything else you would like to share?
+                <small>(optional)</small>
+              </span>
+
+              <textarea
+                id="additional-text"
+                name="additional_text"
+                maxlength="2000"
+                rows="5"
+                placeholder="Share timing, preferences or anything that would help us thoughtfully review your request."
+              ></textarea>
+            </label>
+
+            <div class="consent-box">
+              <label class="check-row">
+                <input
+                  id="deliver-report"
+                  type="checkbox"
+                  checked
+                />
+
+                <span>
+                  Prepare my personalized Paradise
+                  Park report.
+                </span>
+              </label>
+
+              <label class="check-row">
+                <input
+                  id="marketing-consent"
+                  type="checkbox"
+                />
+
+                <span>
+                  Send me occasional Paradise Park
+                  experiences and offers.
+                </span>
+              </label>
+
+              <p>
+                Report delivery and marketing
+                permission are handled separately.
+              </p>
+            </div>
+          </section>
+
+          <p
+            class="form-error"
+            id="form-error"
+            role="alert"
+          ></p>
+
+          <div class="form-actions">
+            <button
+              type="button"
+              class="button secondary"
+              id="back-button"
+              hidden
+            >
+              Back
+            </button>
+
+            <button
+              type="button"
+              class="button primary"
+              id="next-button"
+            >
+              Continue
+            </button>
+
+            <button
+              type="submit"
+              class="button primary"
+              id="submit-button"
+              hidden
+            >
+              Create my recommendation
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section
+        class="report-card"
+        id="report-card"
+        hidden
+        aria-live="polite"
+      >
+        <div id="report-content"></div>
+
+        <button
+          class="button secondary"
+          id="start-over-button"
+          type="button"
+        >
+          Start over
+        </button>
+      </section>
+
+      <section
+        class="concierge-card"
+        id="ai-concierge"
+        aria-labelledby="concierge-heading"
+      >
+        <div class="concierge-intro">
+          <div>
+            <p class="eyebrow">Grounded AI concierge</p>
+            <h2 id="concierge-heading">
+              Ask about your Paradise Park experience
+            </h2>
+            <p class="helper">
+              Ask about approved packages, experience differences, scheduling,
+              products or what to expect. The concierge answers from approved
+              Paradise Park information and cannot change prices, availability
+              or your checkout total.
+            </p>
+          </div>
+
+          <span class="ai-badge" aria-label="Powered by Google Gemini">
+            Gemini assisted
+          </span>
+        </div>
+
+        <div class="concierge-suggestions" aria-label="Suggested questions">
+          <button class="question-chip" type="button">
+            What is the difference between Express and Rapid Reset?
+          </button>
+          <button class="question-chip" type="button">
+            When are Paradise Park experiences available?
+          </button>
+          <button class="question-chip" type="button">
+            What should I expect after checkout?
+          </button>
+        </div>
+
+        <form class="concierge-form" id="concierge-form">
+          <label for="concierge-question">
+            Your question
+          </label>
+
+          <div class="concierge-input-row">
+            <textarea
+              id="concierge-question"
+              name="concierge-question"
+              rows="3"
+              minlength="3"
+              maxlength="600"
+              placeholder="For example: Which reset is best for a half-day experience?"
+              required
+            ></textarea>
+
+            <button
+              class="button primary"
+              id="concierge-submit"
+              type="submit"
+            >
+              Ask the concierge
+            </button>
+          </div>
+
+          <div class="concierge-meta">
+            <span id="concierge-character-count">0 / 600</span>
+            <span>
+              Questions and responses may be saved to improve the concierge.
+              Do not include private medical, payment or identification details.
+            </span>
+          </div>
+
+          <p
+            class="form-error"
+            id="concierge-error"
+            role="alert"
+          ></p>
+        </form>
+
+        <div
+          class="concierge-answer"
+          id="concierge-answer"
+          aria-live="polite"
+          hidden
+        >
+          <div class="concierge-answer-heading">
+            <p class="eyebrow">Paradise Park concierge</p>
+            <span class="answer-status" id="concierge-status"></span>
+          </div>
+
+          <p class="answer-copy" id="concierge-answer-copy"></p>
+
+          <div
+            class="concierge-followups"
+            id="concierge-followups"
+            hidden
+          >
+            <p><strong>You may also want to ask:</strong></p>
+            <div id="concierge-followup-buttons"></div>
+          </div>
+
+          <div
+            class="concierge-action"
+            id="concierge-action"
+          ></div>
+
+          <details class="concierge-sources" id="concierge-sources" hidden>
+            <summary>Approved information references</summary>
+            <ul id="concierge-source-list"></ul>
+          </details>
+
+          <p
+            class="disclaimer"
+            id="concierge-disclaimer"
+            hidden
+          >
+            This information supports general wellbeing and experience planning.
+            It is not medical advice, diagnosis or treatment.
+          </p>
+
+          <p class="trace-copy" id="concierge-trace"></p>
+        </div>
+      </section>
+    </main>
+
+    <script
+      src="/static/app.js?version=11"
+      defer
+    ></script>
+  </body>
+</html>

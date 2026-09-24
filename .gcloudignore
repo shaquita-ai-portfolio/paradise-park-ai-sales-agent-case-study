@@ -1,0 +1,15 @@
+.git
+.venv
+.pytest_cache
+__pycache__
+*.pyc
+.env
+.env.*
+!.env.example
+build
+dist
+*.egg-info
+tests
+deliverables
+*.zip
+.DS_Store

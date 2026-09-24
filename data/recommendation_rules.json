@@ -1,0 +1,258 @@
+{
+  "rules_version": "0.2.0",
+  "minimum_agenda_services": 3,
+  "maximum_primary_recommendations": 1,
+  "maximum_supporting_recommendations": 2,
+  "agenda_item_statuses": ["proposed_included", "paid_upgrade", "custom_quote", "human_review"],
+  "personalization_language_policy": {
+    "explicit_answer_prefix": "You stated",
+    "inferred_answer_prefix": "Based on your answers, you may",
+    "recommendation_phrase": "You may enjoy",
+    "package_phrase": "This package may address the priorities you shared",
+    "rules": [
+      "Use You stated only when the statement is directly supported by a selected or typed assessment answer.",
+      "Use Based on your answers or You may when the system is interpreting several answers.",
+      "Never turn an inference into a diagnosis, identity statement or certain claim.",
+      "Never say You have trauma, You suffer from, Your body is toxic or You need medical treatment.",
+      "Connect every service recommendation to a stated goal, challenge or preference and explain why the service may be enjoyable or helpful."
+    ]
+  },
+  "commercial_rules": [
+    {
+      "id": "protect_internal_cost",
+      "rule": "Never return internal_cost or overhead_tier in a guest-facing response."
+    },
+    {
+      "id": "no_unknown_price_invention",
+      "rule": "When client_price.status is custom, tbd or unknown, display Custom quote and route to human confirmation."
+    },
+    {
+      "id": "express_margin_guardrail",
+      "rule": "Express Reset may not automatically include a high-overhead service. High-overhead matches are shown as clearly priced upgrades."
+    },
+    {
+      "id": "rapid_margin_guardrail",
+      "rule": "Rapid Reset may propose no more than one high-overhead included service until its final inclusion and margin policy is approved."
+    },
+    {
+      "id": "executive_margin_guardrail",
+      "rule": "Executive Reset is starts-at pricing. Agendas containing more than two high-overhead services, dining or a fixed-cost entertainment/adventure item require a recalculated quote."
+    },
+    {
+      "id": "group_capacity_guardrail",
+      "rule": "Group agendas use group-capable services only. Individual services are optional upgrades and require staffing, capacity and per-person quote confirmation."
+    },
+    {
+      "id": "agenda_transparency",
+      "rule": "Every item must be labeled proposed included, paid upgrade, custom quote or human review; recommendation does not imply inclusion."
+    }
+  ],
+  "signal_maps": [
+    {
+      "signal": "body_tension",
+      "ranked_service_ids": ["assisted_stretch", "stretch_swing", "herbal_foot_reflexology", "sound_therapy"],
+      "why": "The guest reported tension or limited ease and selected movement-oriented support.",
+      "explicit_guest_copy": "You stated that you often notice tension or limited ease and are interested in movement-oriented support.",
+      "inferred_guest_copy": "Based on your answers, you may enjoy support that combines intentional movement, breath and body awareness."
+    },
+    {
+      "signal": "gentle_body_support",
+      "ranked_service_ids": ["assisted_stretch", "herbal_foot_reflexology", "river_rest", "sound_therapy"],
+      "why": "The guest prefers a gentler, grounding form of body support.",
+      "explicit_guest_copy": "You stated that a gentle, grounding form of body support feels most aligned for you.",
+      "inferred_guest_copy": "Based on your answers, you may enjoy a gentler experience centered on grounding, ease and unhurried care."
+    },
+    {
+      "signal": "intensive_mobility_support",
+      "ranked_service_ids": ["stretch_swing", "assisted_stretch", "guided_breathwork"],
+      "why": "The guest selected a more active or intensive mobility experience.",
+      "explicit_guest_copy": "You stated that you prefer a more active or intensive mobility experience.",
+      "inferred_guest_copy": "Based on your answers, you may enjoy a more active experience focused on movement, flexibility and body awareness."
+    },
+    {
+      "signal": "emotional_load",
+      "ranked_service_ids": ["somatic_release", "guided_reflection", "sound_therapy", "river_rest"],
+      "why": "The guest wants body-centered reflection, spaciousness and intentional release during a demanding season.",
+      "explicit_guest_copy": "You stated that you are moving through a demanding season and would welcome body-centered reflection and space to release.",
+      "inferred_guest_copy": "Based on your answers, you may enjoy experiences that create emotional spaciousness, reflection and a gentler pace."
+    },
+    {
+      "signal": "womb_centered",
+      "ranked_service_ids": ["womb_wellness", "womb_workshop", "cycle_syncing_consult"],
+      "why": "The guest explicitly requested womb-centered wellbeing options.",
+      "explicit_guest_copy": "You stated that you would like womb-centered wellbeing included in your recommendations.",
+      "inferred_guest_copy": "Based on your answers, you may enjoy learning more about Paradise Park's private womb-centered wellbeing options."
+    },
+    {
+      "signal": "skin_ritual",
+      "ranked_service_ids": ["elevated_facial", "mini_facials", "body_scrub_wrap"],
+      "why": "The guest selected refreshing, appearance-focused skincare and pampering.",
+      "explicit_guest_copy": "You stated that refreshing skincare and pampering would make the experience more valuable to you.",
+      "inferred_guest_copy": "Based on your answers, you may enjoy an appearance-focused skincare ritual that adds calm and pampering to your visit."
+    },
+    {
+      "signal": "deep_rest",
+      "ranked_service_ids": ["sound_therapy", "river_rest", "aromatherapy_treatment", "sauna", "forest_bathing"],
+      "why": "The guest wants unhurried rest, sensory calm and quiet restoration.",
+      "explicit_guest_copy": "You stated that unhurried rest, sensory calm and quiet restoration are priorities for you.",
+      "inferred_guest_copy": "Based on your answers, you may enjoy experiences that help you slow your pace and spend more time in quiet restoration."
+    },
+    {
+      "signal": "clarity_transition",
+      "ranked_service_ids": ["transitions_clarity", "guided_reflection", "legacy_visualization", "personality_strengths"],
+      "why": "The guest is navigating change and wants clarity, intention and next-step reflection.",
+      "explicit_guest_copy": "You stated that you are navigating change and would value clarity, intention and space to consider your next steps.",
+      "inferred_guest_copy": "Based on your answers, you may enjoy guided reflection that helps you reconnect with priorities and next intentions."
+    },
+    {
+      "signal": "faith_requested",
+      "ranked_service_ids": ["child_of_god", "faith_purpose_circle", "guided_reflection"],
+      "why": "The guest explicitly requested a Christian-centered experience.",
+      "explicit_guest_copy": "You stated that you would like Christian-centered reflection included in your experience.",
+      "inferred_guest_copy": "Based on your answers, you may enjoy an optional faith-centered reflection experience if that feels aligned for you."
+    },
+    {
+      "signal": "team_connection",
+      "ranked_service_ids": ["team_building", "guided_reflection", "music_karaoke", "collective_pamper", "sound_therapy"],
+      "why": "The organizer prioritized connection, participation and a shared memorable experience.",
+      "explicit_guest_copy": "You stated that connection, participation and a memorable shared experience are priorities for your group.",
+      "inferred_guest_copy": "Based on your answers, your group may enjoy a balance of connection, participation and shared restoration."
+    },
+    {
+      "signal": "nature_connection",
+      "ranked_service_ids": ["river_rest", "forest_bathing", "garden_tour", "garden_taste_tour", "hiking"],
+      "why": "The guest wants nature, outdoor reflection or active exploration.",
+      "explicit_guest_copy": "You stated that nature, outdoor reflection or active exploration would make your visit more meaningful.",
+      "inferred_guest_copy": "Based on your answers, you may enjoy spending part of your experience outdoors and intentionally connected to the land or water."
+    },
+    {
+      "signal": "culinary_interest",
+      "ranked_service_ids": ["vegan_dining", "garden_taste_tour", "garden_to_glass", "tea_tasting", "smoothie_blends"],
+      "why": "The guest wants nourishment or a memorable culinary experience included in the visit.",
+      "explicit_guest_copy": "You stated that nourishment or a memorable culinary experience would add value to your visit.",
+      "inferred_guest_copy": "Based on your answers, you may enjoy a culinary or herbal experience that adds flavor, beauty and intentional nourishment to the day."
+    },
+    {
+      "signal": "joy_celebration",
+      "ranked_service_ids": ["music_medicine", "music_karaoke", "pottery_art", "vegan_dining"],
+      "why": "The guest wants an uplifting, celebratory or creatively memorable close.",
+      "explicit_guest_copy": "You stated that joy, celebration or a creatively memorable moment is important to you.",
+      "inferred_guest_copy": "Based on your answers, you may enjoy an uplifting or creative experience that gives the day a memorable close."
+    },
+    {
+      "signal": "anxiety_support",
+      "ranked_service_ids": ["guided_breathwork", "sound_therapy", "river_rest", "somatic_release"],
+      "why": "The guest wants a calmer rhythm and grounding support during a season of persistent worry.",
+      "explicit_guest_copy": "You stated that you are seeking a calmer rhythm during a season of anxiety or persistent worry.",
+      "inferred_guest_copy": "Based on your answers, you may enjoy a gently paced experience centered on grounding, quiet and restorative support."
+    },
+    {
+      "signal": "trauma_aware_support",
+      "ranked_service_ids": ["somatic_release", "guided_reflection", "river_rest", "sound_therapy"],
+      "why": "The guest requested trauma-aware restoration without pressure to revisit difficult experiences.",
+      "explicit_guest_copy": "You stated that trauma-aware restoration, safety and reconnection are meaningful priorities for you.",
+      "inferred_guest_copy": "Based on your answers, you may enjoy gentle, choice-centered experiences that support rest and reconnection."
+    },
+    {
+      "signal": "relationship_renewal",
+      "ranked_service_ids": ["guided_reflection", "transitions_clarity", "river_rest", "sound_therapy"],
+      "why": "The guest wants intentional space for relationship reflection or reconnection.",
+      "explicit_guest_copy": "You stated that relationship reflection, reconnection or renewal would make this experience meaningful.",
+      "inferred_guest_copy": "Based on your answers, you may enjoy guided space for reflection, communication and renewed connection."
+    },
+    {
+      "signal": "fear_confidence",
+      "ranked_service_ids": ["legacy_visualization", "guided_reflection", "faith_purpose_circle", "transitions_clarity"],
+      "why": "The guest wants to move beyond fear or self-doubt with greater confidence and clarity.",
+      "explicit_guest_copy": "You stated that you are ready for greater courage, confidence and forward movement.",
+      "inferred_guest_copy": "Based on your answers, you may enjoy reflection that reconnects you with your strengths and next intentions."
+    },
+    {
+      "signal": "level_up",
+      "ranked_service_ids": ["legacy_visualization", "personality_strengths", "transitions_clarity", "guided_reflection"],
+      "why": "The guest wants clarity and support for a meaningful personal or professional next chapter.",
+      "explicit_guest_copy": "You stated that you are ready to level up and want clarity and support for your next chapter.",
+      "inferred_guest_copy": "Based on your answers, you may enjoy a strategic reflection experience focused on strengths, vision and next steps."
+    },
+    {
+      "signal": "anti_aging",
+      "ranked_service_ids": ["elevated_facial", "red_light", "sauna", "longevity_cuisine"],
+      "why": "The guest is interested in restorative longevity, vitality and appearance-focused wellbeing.",
+      "explicit_guest_copy": "You stated that vitality, longevity and natural anti-aging wellbeing are meaningful priorities.",
+      "inferred_guest_copy": "Based on your answers, you may enjoy restorative rituals that complement vitality, rest and intentional self-care."
+    },
+    {
+      "signal": "natural_fertility",
+      "ranked_service_ids": ["fertility_support_consult", "womb_wellness", "cycle_syncing_consult", "guided_reflection"],
+      "why": "The guest selected natural fertility and preconception wellbeing as personal priorities.",
+      "explicit_guest_copy": "You stated that natural fertility and preconception wellbeing are meaningful priorities for you.",
+      "inferred_guest_copy": "Based on your answers, you may enjoy nurturing women’s wellbeing and preconception self-care options."
+    },
+    {
+      "signal": "postpartum_renewal",
+      "ranked_service_ids": ["postpartum_renewal", "river_rest", "sound_therapy", "guided_reflection"],
+      "why": "The guest wants appropriate rest, replenishment and nurturing support during a postpartum season.",
+      "explicit_guest_copy": "You stated that rest, replenishment and nurturing support are important during your postpartum season.",
+      "inferred_guest_copy": "Based on your answers, you may enjoy a gently paced experience centered on rest and replenishment, subject to suitability."
+    },
+    {
+      "signal": "grief_support",
+      "ranked_service_ids": ["grief_release_circle", "guided_reflection", "river_rest", "sound_therapy"],
+      "why": "The guest wants gentle space for rest, remembrance and reflection while carrying grief.",
+      "explicit_guest_copy": "You stated that you are carrying grief and would value quiet space for rest, remembrance and reflection.",
+      "inferred_guest_copy": "Based on your answers, you may enjoy a gentle experience with unhurried reflection and restorative time in nature."
+    },
+    {
+      "signal": "high_stress",
+      "ranked_service_ids": ["somatic_release", "guided_breathwork", "sound_therapy", "river_rest", "assisted_stretch"],
+      "why": "The guest is experiencing sustained high stress and wants a meaningful reset.",
+      "explicit_guest_copy": "You stated that sustained high stress has created a need for meaningful space to slow down and reset.",
+      "inferred_guest_copy": "Based on your answers, you may enjoy a deeper restorative rhythm with grounding and personalized care."
+    },
+    {
+      "signal": "burnout_renewal",
+      "ranked_service_ids": ["somatic_release", "river_rest", "sound_therapy", "guided_reflection", "assisted_stretch"],
+      "why": "The guest feels depleted by burnout and wants renewed energy and direction.",
+      "explicit_guest_copy": "You stated that you want to move from burnout and depletion toward renewed energy and direction.",
+      "inferred_guest_copy": "Based on your answers, you may enjoy an immersive reset that creates room for rest, clarity and sustainable renewal."
+    },
+    {
+      "signal": "high_demand_lifestyle",
+      "ranked_service_ids": ["assisted_stretch", "somatic_release", "guided_reflection", "river_rest", "sound_therapy"],
+      "why": "The guest’s high-demand lifestyle calls for deeply personalized, high-touch restorative support.",
+      "explicit_guest_copy": "You stated that your high-demand lifestyle leaves little room for rest and that deeply personalized support would be valuable.",
+      "inferred_guest_copy": "Based on your answers, you may enjoy a high-touch experience designed around a demanding life and schedule."
+    }
+  ],
+  "human_only_triggers": [
+    "diagnosis_or_treatment_request",
+    "pregnancy_or_postpartum_medical_details",
+    "fertility_treatment_request",
+    "active_crisis_or_self_harm_language",
+    "injury_or_medical_contraindication",
+    "discount_or_policy_exception",
+    "service_with_tbd_price",
+    "unapproved_group_capacity"
+  ],
+  "output_contract": {
+    "required_fields": [
+      "package",
+      "package_price_statement",
+      "why_package_fits",
+      "agenda",
+      "price_summary",
+      "primary_cta",
+      "disclaimer"
+    ],
+    "agenda_item_required_fields": [
+      "sequence",
+      "service_id",
+      "service_name",
+      "why_helpful",
+      "experience_description",
+      "commercial_status",
+      "client_price_statement"
+    ],
+    "minimum_agenda_items": 3
+  }
+}

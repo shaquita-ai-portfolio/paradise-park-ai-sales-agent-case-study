@@ -1,0 +1,50 @@
+# Credentials and environment files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+service-account*.json
+credentials*.json
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Customer and production data
+private_exports/
+exports/
+customer-data/
+firestore-export/
+gmail-export/
+*.csv
+*.xlsx
+*.xls
+
+# Production deployment files
+deploy/cloudrun.production.env.yaml
+deploy/cloudrun.staging.env.yaml
+
+# Generated files
+build/
+dist/
+*.egg-info/
+*.log
+
+# Local computer and editor files
+.DS_Store
+.vscode/
+.idea/
+
+# Required sanitized application configuration is allowed in data/
+data/*
+!data/package_policies.json
+!data/recommendation_rules.json
+!data/service_catalog.json
